@@ -1,0 +1,14 @@
+Daos\PublicacionDao.class
+Servlets\RegistroServlet.class
+Clases\Reaccion.class
+Clases\Categoria.class
+Clases\Publicacion.class
+Daos\CategoriaDao.class
+Daos\UsuarioDao.class
+Daos\ComentarioDao.class
+ecotribe\JakartaRestConfiguration.class
+Daos\ReaccionDao.class
+Clases\Conexion.class
+ecotribe\resources\JakartaEE10Resource.class
+Clases\Comentario.class
+Clases\Usuario.class

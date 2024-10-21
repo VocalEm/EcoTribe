@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+:root{
+    --green: #49e622;
+    --black: #333;
+    --light-color: #777;
+    --border: .1rem solid rgba(0,0,0,.2);
+    --box-shadow: 0.5rem 1rem rgba(0,0,0,.1);
+
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#014948, #85ba52);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active {
+    background: #fff;
+    color: #2b1055;
+}
+
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #014948,transparent);
+    z-index: 1000;
+}
+
+section img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+section img#moon
+{
+    mix-blend-mode: screen;
+}
+
+section img#Frente
+{
+    z-index: 10;
+
+}
+
+#text  
+{ 
+    position: absolute;
+    right: -700px;
+    z-index: 10; /* Asegura que el texto esté por encima de las imágenes */
+    color: #fff; /* Asegúrate de que el color del texto sea visible sobre el fondo */
+    font-size: 7.5vw; /* Ajusta el tamaño del texto según sea necesario */
+   
+}
+
+#btn
+{
+    
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 1;
+    transform: translateY(100px);
+
+}
+
+.sec
+{
+    position: relative;
+    padding: 100px;
+    background: #014948;
+}
+
+.sec h2
+{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+
+}
+
+.sec p
+{
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.page-wrapper {
+    background: #014948; 
+    padding: 100px;
+    color: #fff; 
+}
+
+.post-slider{
+    border: 1px solid red;
+}
+
+.post-slider .post-wrapper{
+
+    width: 84%;
+    height: 350px;
+    margin:  0px auto;
+    border: 1px dashed red;
+}
+
+.post-slider .post-wrapper .post{
+    width: 300px;
+    height: 350px;
+    display: inline-block;
+    background:  #85ba52;
+
+}
+
+.main-content {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content h1{
+    margin-bottom: 0; /* Eliminar margen inferior */
+    padding-bottom: 0;
+    background: #fff;
+    background-color:  #014948;
+    color: #fff;
+    text-align: center;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Ajustar el espacio del carrusel */
+.carousel {
+    margin-bottom: 0; /* Eliminar margen inferior */
+    padding-bottom: 0;
+    margin-top: 0;
+}
+/* Inner del carrusel */
+.carousel-inner {
+    display: flex;
+}
+
+/* Items del carrusel */
+.carousel-item {
+    display: flex;
+    width: 100%; /* Asegura que el item ocupe todo el ancho */
+}
+
+/* Contenedor de tarjetas dentro de cada item */
+.d-flex {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre las tarjetas */
+}
+
+/* Tarjetas dentro del carrusel */
+.card {
+    width: 30%; /* Ajusta el ancho de las tarjetas para mostrar 3 a la vez */
+    margin: 0 10px; /* Espacio entre tarjetas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Imagen dentro de la tarjeta */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Botones de control del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    background: rgba(0,0,0,0.5);
+}
+
+
+
+
+.btn-create-post {
+    display: block;
+    margin: 0; /* Margen superior e inferior ajustado */
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0; /* Eliminar márgenes innecesarios debajo */
+}
+
+/* Centrar el botón */
+.text-center {
+    text-align: center;
+}
+
+/* Reducir márgenes del contenedor del botón */
+.mt-4 {
+    margin-top: 20px;
+    margin-bottom: 0; /* Eliminar margen inferior */
+}
+
+.centered-heading {
+    text-align: center;
+    color: white;
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    background-color: #333;
+    padding: 10px;
+}
+
+
+/* Pie de página */
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 0rem;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.footer .credit{
+    text-transform: capitalize;
+    font-size: 2rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.footer .credit span{
+    color: var(--green);
+}
+
+.footer .follow{
+    padding: 1rem 0;
+}
+
+.footer .follow a{
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    background: var(--black);
+    color: #fff;
+    margin: 0 .1rem;
+    text-align: center;
+}
+
+.footer .follow a:hover{
+    background: var(--green);
+}

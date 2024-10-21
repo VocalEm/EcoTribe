@@ -1,0 +1,291 @@
+:root {
+    --green: #49e622;
+    --black: #333;
+    --light-color: #777;
+    --border: .1rem solid rgba(0, 0, 0, .2);
+    --box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2d2d2d;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Permite solo el desplazamiento vertical */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 7%;
+}
+
+.header .logo {
+    color: var(--black);
+    font-size: 2.5rem;
+    margin-right: auto;
+}
+
+.header .logo span {
+    color: var(--green);
+}
+
+.header .navbar a {
+    color: var(--light-color);
+    margin-right: 2rem;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+}
+
+.header .navbar a:hover {
+    color: var(--green);
+}
+
+.header .icons i {
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    color: var(--black);
+    background: #eee;
+    border-radius: 50%;
+    margin-left: .7rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.header .icons i:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+.header .search-form {
+    position: absolute;
+    background: #fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    top: 110%;
+    right: 7%;
+    height: 6rem;
+    width: 50rem;
+    padding: 1rem;
+    display: none;
+}
+
+.header .search-form.active {
+    display: flex; /* Mostrar el cuadro de búsqueda cuando la clase active esté presente */
+}
+
+.header .search-form #search-box {
+    width: 100%;
+    border: var(--border);
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    height: 100%;
+}
+
+.header .search-form label {
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .search-form label:hover {
+    color: var(--green);
+}
+
+#menu-bars {
+    display: none;
+}
+
+.banner {
+    min-height: 80vh;
+    background: url('./Imagenes/banner2.jpg') no-repeat center center/cover;
+    display: grid;
+    place-items: center;
+    padding-top: 8rem;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    background: var(--black);
+    color: #fff;
+    border-radius: .5rem;
+    padding: .9rem 3rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover {
+    background: var(--green);
+}
+
+section {
+    position: fixed; /* Fija el fondo a toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que la imagen esté detrás del formulario */
+}
+
+.box {
+    position: relative;
+    width: 600px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: .5rem;
+}
+
+.box::after {
+    text-align: center;
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 3rem;
+    max-width: 50rem;
+}
+
+.box .inputBox {
+    position: relative;
+    width: 300px;
+    margin-bottom: 40px;
+}
+
+.box form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 40px;
+    z-index: 10000;
+}
+
+.box form h3 {
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.box form input {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    color: var(--black);
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.box form label {
+    position: absolute;
+    left: 0;
+    padding: 10px 0;
+    pointer-events: none;
+    color: var(--light-color);
+    text-transform: uppercase;
+}
+
+.inputBox label span {
+    position: relative;
+    display: inline-flex;
+    letter-spacing: 0.05em;
+    transition: 0.4s ease-in-out; /* Tiempo de transición más suave */
+}
+
+.inputBox input:focus ~ label span,
+.inputBox input:valid ~ label span {
+    color: var(--green);
+    letter-spacing: 0.15em;
+    transform: translateY(-25px);
+}
+
+.inputBox input:focus,
+.inputBox input:valid {
+    border-bottom: 2px solid var(--green);
+}
+
+.box form input[type="submit"] {
+    margin-top: 1rem;
+    padding: 15px;
+    border-radius: 50px; /* Mantengo solo una propiedad */
+    background: var(--black);
+    color: #fff;
+    padding: .9rem 3rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+    transition: 0.5s;
+}
+
+.box form input[type="submit"]:hover {
+    background: var(--green);
+    letter-spacing: 0.35em;
+}
+
+.box form .group {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box form .group a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.box form .group a:last-child {
+    color: blue;
+    font-weight: 500;
+}
