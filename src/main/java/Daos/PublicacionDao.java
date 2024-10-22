@@ -4,8 +4,10 @@
  */
 package Daos;
 
+import Clases.Categoria;
 import Clases.Conexion;
 import Clases.Publicacion;
+import Clases.Usuario;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,19 +23,26 @@ import java.util.List;
 public class PublicacionDao {
     private final Conexion dbc = new Conexion();
         
-    public boolean createPublicacion(Publicacion publi) {
-        String sql = "{CALL SP_PUBLICACIONES(?, ?, ?, ?, ?, ?, ?, ?)}";
+    public boolean createPublicacion(Publicacion publi) { // la publicacion va a ser cargada con un usuario y una categoria entera por lo que en base a esos atributos
+        String sql = "{CALL SP_PUBLICACIONES(?, ?, ?, ?, ?, ?, ?, ?)}"; // vamos a generar una instancia de usuario y categoria que seran llenadas con la ayuda de nuestros metodos
+        
+        Usuario usuario = new Usuario();
+        usuario = publi.getUsuario();
+        
+        Categoria categoria = new Categoria();
+        categoria = publi.getCategoria(); 
+        
         boolean respuesta = false;
         try (Connection conn = dbc.Conectar();
         CallableStatement stmt = conn.prepareCall(sql)) {
         
         stmt.setInt(1, 1);
-        stmt.setInt(2, Types.INTEGER);
-        stmt.setInt(3, publi.getId_usuario());
+        stmt.setNull(2, Types.INTEGER);
+        stmt.setInt(3, usuario.getId());//
         stmt.setString(4, publi.getTitulo());
         stmt.setString(5, publi.getDescripcion());
         stmt.setString(6, publi.getImagen()); // Conversión de LocalDate a java.sql.Date
-        stmt.setInt(7, publi.getId_categoria());
+        stmt.setInt(7, categoria.getId());//
         stmt.registerOutParameter(8, Types.BOOLEAN);
 
         stmt.execute();
@@ -76,13 +85,14 @@ public class PublicacionDao {
     
     }
        
-    public Publicacion show (int id) {
+    public Publicacion show (int id){
         
     Publicacion publi = new Publicacion();
     String sql = "{CALL SP_PUBLICACIONES(?, ?, ?, ?, ?, ?, ?, ?)}";
     try (Connection conn = dbc.Conectar();
-        CallableStatement stmt = conn.prepareCall(sql)) {
-        stmt.setInt(1, 1);
+        CallableStatement stmt = conn.prepareCall(sql))
+        {
+        stmt.setInt(1, 3);
         stmt.setInt(2, id);
         stmt.setNull(3, Types.INTEGER);
         stmt.setNull(4, Types.VARCHAR);
@@ -94,13 +104,19 @@ public class PublicacionDao {
         ResultSet rs = stmt.executeQuery();
         // Procesar el resultado
         if (rs.next()) {
+            Usuario usuario = new Usuario();
+            usuario.setUsername(rs.getString("USERNAME"));
+            Categoria categoria = new Categoria();
+            categoria.setNombre(rs.getString("CATEGORIA"));
+            //LLENADO DE PUBLI
             publi.setId(rs.getInt("ID"));
-            publi.setId_usuario(rs.getInt("ID_USUARIO"));
-            publi.setFecha_creacion(rs.getDate("FECHA_CREACION").toLocalDate());
             publi.setTitulo(rs.getString("TITULO"));
             publi.setDescripcion(rs.getString("DESCRIPCION"));
+            publi.setFecha_creacion(rs.getDate("FECHA").toLocalDate());
+            publi.setDescripcion(rs.getString("DESCRIPCION"));
             publi.setImagen(rs.getString("IMAGEN"));
-            publi.setId_categoria(rs.getInt("ID_CATEGORIA"));
+            publi.setUsuario(usuario);
+            publi.setCategoria(categoria);
         }
 
         rs.close();
@@ -112,14 +128,14 @@ public class PublicacionDao {
     }
     
     return publi;
-    }
+    } //muestra una sola
 
     public List<Publicacion> index () {
     List<Publicacion> listaPublicaciones = new ArrayList<>();
     String sql = "{CALL SP_PUBLICACIONES(?, ?, ?, ?, ?, ?, ?, ?)}";
     try (Connection conn = dbc.Conectar();
         CallableStatement stmt = conn.prepareCall(sql)) {
-        stmt.setInt(1, 1);
+        stmt.setInt(1, 4);
         stmt.setNull(2, Types.INTEGER);
         stmt.setNull(3, Types.INTEGER);
         stmt.setNull(4, Types.VARCHAR);
@@ -130,15 +146,20 @@ public class PublicacionDao {
         
         ResultSet rs = stmt.executeQuery();
         // Procesar el resultado
-        if (rs.next()) {
+        if (rs.next()) { 
+            Usuario usuario = new Usuario();
+            usuario.setUsername(rs.getString("USERNAME"));
+            Categoria categoria = new Categoria();
+            categoria.setNombre(rs.getString("CATEGORIA"));
+            
             Publicacion publi = new Publicacion();
+            publi.setUsuario(usuario);
+            publi.setCategoria(categoria);
             publi.setId(rs.getInt("ID"));
-            publi.setId_usuario(rs.getInt("ID_USUARIO"));
-            publi.setFecha_creacion(rs.getDate("FECHA_CREACION").toLocalDate());
+            publi.setFecha_creacion(rs.getDate("FECHA").toLocalDate());
             publi.setTitulo(rs.getString("TITULO"));
             publi.setDescripcion(rs.getString("DESCRIPCION"));
             publi.setImagen(rs.getString("IMAGEN"));
-            publi.setId_categoria(rs.getInt("ID_CATEGORIA"));
             listaPublicaciones.add(publi);
         }
 
@@ -151,15 +172,14 @@ public class PublicacionDao {
     }
     
     return listaPublicaciones;
-    }
+    } // feed
     
-    public Publicacion showPublicacion (int id_usuario) {
-        
-    Publicacion publi = new Publicacion();
+    public List<Publicacion> showPublicacion (int id_usuario) {
+    List<Publicacion> listaPublicaciones = new ArrayList<>();
     String sql = "{CALL SP_PUBLICACIONES(?, ?, ?, ?, ?, ?, ?, ?)}";
     try (Connection conn = dbc.Conectar();
         CallableStatement stmt = conn.prepareCall(sql)) {
-         stmt.setInt(1, 1);
+         stmt.setInt(1, 5);
         stmt.setNull(2, Types.INTEGER);
         stmt.setInt (3, id_usuario);    
         stmt.setNull(4, Types.VARCHAR);
@@ -171,13 +191,19 @@ public class PublicacionDao {
         ResultSet rs = stmt.executeQuery();
         // Procesar el resultado
         if (rs.next()) {
+            Publicacion publi = new Publicacion();
+            Usuario usuario = new Usuario();
+            usuario.setUsername(rs.getString("USERNAME"));
+            Categoria categoria = new Categoria();
+            categoria.setNombre(rs.getString("CATEGORIA"));
+            publi.setUsuario(usuario);
+            publi.setCategoria(categoria);
             publi.setId(rs.getInt("ID"));
-            publi.setId_usuario(rs.getInt("ID_USUARIO"));
             publi.setFecha_creacion(rs.getDate("FECHA_CREACION").toLocalDate());
             publi.setTitulo(rs.getString("TITULO"));
             publi.setDescripcion(rs.getString("DESCRIPCION"));
             publi.setImagen(rs.getString("IMAGEN"));
-            publi.setId_categoria(rs.getInt("ID_CATEGORIA"));            
+            listaPublicaciones.add(publi);
         }
 
         rs.close();
@@ -188,6 +214,6 @@ public class PublicacionDao {
         e.printStackTrace();  // Imprimir errores para depuración
     }
     
-    return publi;
-    }
+    return listaPublicaciones;
+    } //muestra publicaciones de un solo usuario
 }

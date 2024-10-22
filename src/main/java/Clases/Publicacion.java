@@ -16,8 +16,24 @@ public class Publicacion {
     private String descripcion;
     private String imagen;
     private LocalDate fecha_creacion;
-    private int id_categoria; 
-    private int id_usuario;
+    private Usuario usuario;
+    private Categoria categoria;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
     public int getId() {
         return id;
@@ -57,21 +73,5 @@ public class Publicacion {
 
     public void setFecha_creacion(LocalDate fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
-    }
-
-    public int getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
-    }
-
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
     }
 }

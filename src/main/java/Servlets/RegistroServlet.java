@@ -87,8 +87,6 @@ public class RegistroServlet extends HttpServlet {
         
         UsuarioDao dao = new UsuarioDao();
         boolean respuesta =dao.createUser(user);
-        HttpSession session = request.getSession();
-        //session.setAttribute("correo", user.getCorreo());
         if(respuesta)
         {
             response.sendRedirect("login.jsp");

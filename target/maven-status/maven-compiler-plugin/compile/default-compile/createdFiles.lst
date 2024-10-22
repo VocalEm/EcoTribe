@@ -10,5 +10,6 @@ ecotribe\JakartaRestConfiguration.class
 Daos\ReaccionDao.class
 Clases\Conexion.class
 ecotribe\resources\JakartaEE10Resource.class
+Servlets\LoginServlet.class
 Clases\Comentario.class
 Clases\Usuario.class

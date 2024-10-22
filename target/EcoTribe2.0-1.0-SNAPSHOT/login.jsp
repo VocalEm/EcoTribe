@@ -44,9 +44,9 @@
     <!--FInal de banners-->
 
     <div class="box">
-      <form id="login-form" action="feed.jsp">
+        <form id="login-form" method="POST" action="LoginServlet">
         <h3>Sign In</h3>
-        <input type="text" placeholder="Username" name="username" required />
+        <input type="text" placeholder="Username" name="correo" required />
         <input
           type="password"
           placeholder="Password"
@@ -66,12 +66,10 @@
       document
         .getElementById("login-form")
         .addEventListener("submit", function (event) {
-          event.preventDefault(); // Evita el envío del formulario por defecto
 
           // Aquí puedes realizar la validación o cualquier otra lógica necesaria
 
           // Redirige al usuario a otra página
-          window.location.href = "Principal.jsp"; // Cambia la URL según tu destino
         });
     </script>
   </body>
