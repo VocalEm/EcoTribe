@@ -81,20 +81,33 @@ public class RegistroServlet extends HttpServlet {
         user.setApellido_mat(request.getParameter("apellido_mat"));
         user.setUsername(request.getParameter("username"));
         user.setCorreo(request.getParameter("email"));
+        
         user.setFecha_nacimiento(LocalDate.parse(request.getParameter("fecha_nac")));
         user.setPassword(request.getParameter("password"));
         String passwordConfirm = request.getParameter("password_confirm");
         
         UsuarioDao dao = new UsuarioDao();
-        boolean respuesta =dao.createUser(user);
-        if(respuesta)
+        boolean respuesta = dao.createUser(user);
+        boolean correoExiste = dao.validacionCorreo(user.getCorreo());
+        
+        if (!correoExiste)
         {
-            response.sendRedirect("login.jsp");
+            request.setAttribute("errorMessage", "El correo ya está en uso.");
+            request.getRequestDispatcher("Register.jsp").forward(request, response);
         }
         else
         {
-            response.sendRedirect("index.jsp");
+            if(respuesta)
+            {
+                response.sendRedirect("login.jsp");
+            }
+            else
+            {
+                request.setAttribute("errorMessage", "No se pudo registrar el usuario.");
+                request.getRequestDispatcher("Register.jsp").forward(request, response);
+            }
         }
+        
     }
 
     /**

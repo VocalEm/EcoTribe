@@ -75,24 +75,17 @@
         <div class="inputBox" style="text-align: center;">
             <input type="submit" value="Create" style="display: block; margin: 0 auto;">
         </div>
+        <div  class="error" id="errores">
+             <c:if test="${not empty errorMessage}">
+                <p style="color: red;">${errorMessage}</p>
+            </c:if>
+        </div>
 
         <p>Ya tengo cuenta <a href="login.jsp">Login</a></p>
     </form>
 </div>
-    <script>
-        // Selecciona todas las etiquetas <label>
-        document.querySelectorAll('label').forEach(label => {
-            // Divide el texto de cada etiqueta en letras individuales
-            label.innerHTML = label.innerText.split('')
-                .map((letter, i) => `<span style="transition-delay: ${i * 50}ms">${letter}</span>`)
-                .join('');
-        });
-    
-        // Agrega un evento al formulario para manejar el envío
-        document.getElementById('Register-form').addEventListener('submit', function(event) {
-           
-            // Aquí puedes realizar la validación o cualquier otra lógica necesaria
-        });
+    <script src="Register.js">
+        
     </script>
     
 </body>

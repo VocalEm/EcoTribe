@@ -1,0 +1,627 @@
+:root{
+    --green: #49e622;
+    --black: #333;
+    --light-color: #777;
+    --border: .1rem solid rgba(0,0,0,.2);
+    --box-shadow: 0.5rem 1rem rgba(0,0,0,.1);
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+html{
+
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+
+}
+
+section{
+    padding: 2rem 7%;
+
+
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background: var(--black);
+    color: #fff;
+    border-radius: .5rem;
+    padding: .9rem 3rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background: var(--green);
+}
+
+
+.header{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 7%;
+
+
+}
+
+.header .logo{
+
+    color: var(--black);
+    font-size: 2.5rem;
+    margin-right: auto;
+
+
+}
+
+.header .logo span{
+
+    color: var(--green);
+}
+
+.header .navbar a{
+
+    color: var(--light-color);
+    margin-right: 2rem;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+
+}
+
+.header .navbar a:hover{
+
+    color: var(--green);
+}
+
+.header .icons i{
+
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    color: var(--black);
+    background: #eee;
+    border-radius: 50%;
+    margin-left: .7rem ;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.header .icons i:hover{
+
+    color: #fff;
+    background: var(--green);
+
+}
+
+.header .search-form{
+
+    position: absolute;
+    background: #fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    top: 110%;
+    right: 7%;
+    height: 6rem;
+    width: 50rem;
+    padding: 1rem;
+    display: none;
+}
+
+.header .search-form.active {
+    display: flex; /* Mostrar el cuadro de búsqueda cuando la clase active esté presente */
+}
+
+.header .search-form #search-box{
+
+    width: 100%;
+    border: var(--border);
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    height: 100%;
+
+}
+
+.header .search-form label{
+
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .search-form label:hover{
+
+    color: var(--green);
+}
+
+#menu-bars{
+    display: none;
+}
+
+
+
+
+.container {
+ display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #2f7e0b, #3a96e0); /* Degradado de azul */
+    padding: 2rem;
+    border-radius: .5rem;
+    
+    margin-top: 6.5rem; 
+}
+
+.container .post-cointainer .post{
+    width: 100%;
+    padding: 2rem;
+    background: #fff;
+    border: var(--border);
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.title-link {
+    text-decoration: none; /* Quitar subrayado por defecto */
+    color: inherit; /* Heredar el color del texto del título */
+}
+
+/* Opcional: si quieres que el título tenga un color específico */
+.title-link .title {
+    color: #333; /* Color del título, puedes ajustarlo según tus preferencias */
+}
+
+/* Opcional: estilos para el título al pasar el ratón */
+.title-link:hover .title {
+    color: #007BFF; /* Cambiar color al pasar el ratón */
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
+#post {
+    padding-top: 8rem;
+}
+
+.container .post-cointainer .post .image{
+
+    height: 40rem;
+    width: 100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.container .post-cointainer .post .date{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color: var(--green);
+}
+
+.container .post-cointainer .post .title{
+    padding-top: 1.5rem;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.container .post-cointainer .post .text{
+    color: var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding: 1rem 0;
+}
+
+.container .post-cointainer .links{
+
+    border-top: var(--border);
+    margin-top: .5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.container .post-cointainer .links .user{
+    margin-right: auto;
+}
+
+.container .post-cointainer .links .icon{
+    padding-right: 1rem;
+}
+
+.container .post-cointainer .links a{
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.container .post-cointainer .links a i{
+    padding-right: .2rem;
+    color: var(--black);
+}
+
+.container .post-cointainer .links a:hover{
+    
+    color: var(--green);
+}
+
+.container .post-cointainer .links a:hover i{
+    
+    color: var(--green);
+}
+
+.container .sidebar .box{
+    border: var(--border);
+    border-radius: .5rem;
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.container .sidebar .box .title{
+    padding: 1.5rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--black);
+    text-transform: capitalize;
+}
+
+.container .sidebar .box .about{
+    text-align: center;
+    padding: 1rem 1.5rem;
+}
+
+.container .sidebar .box .about img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem 0;
+}
+
+.container .sidebar .box .about h3{
+
+    color: var(--green);
+    font-size: 2rem;
+}
+
+
+.container .sidebar .box .about p{
+
+    color: var(--light-color);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 1rem 0;
+}
+
+.container .sidebar .box .about .follow{
+    padding: 1rem 0;
+}
+
+.container .sidebar .box .about .follow a{
+    height: 4rem;
+    line-height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background: var(--black);
+    color: #fff;
+    font-size: 1.7rem;
+    margin: 0 .1rem;
+}
+
+.container .sidebar .box .about .follow a:hover{
+    background: var(--green);
+}
+
+
+.container .sidebar .box .category{
+    padding: 1rem 1.5rem;
+}
+
+
+.container .sidebar .box .category a{
+    padding: .4rem 0;
+    font-size: 1.5rem;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .sidebar .box .category a span{
+    background: var(--light-color);
+    color: #fff;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.container .sidebar .box .category a:hover{
+    color: var(--green);
+}
+
+.container .sidebar .box .category a:hover span{
+    background-color: var(--green);
+}
+
+.container .sidebar .box .p-post{
+    padding: 1rem 2rem;
+}
+
+.container .sidebar .box .p-post a{
+    padding: 1rem 0;
+    display: block;
+}
+
+.container .sidebar .box .p-post a h3{
+    color: var(--black);
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.container .sidebar .box .p-post a span{
+    color: var(--light-color);
+    font-size: 1.5rem;
+}
+
+.container .sidebar .box .p-post a span i{
+    padding-right: .2rem;
+}
+
+.container .sidebar .box .p-post a:hover h3{
+    color: var(--green);
+}
+
+.n-publicacion{
+    display: none;
+     background: url(../Imagenes/Publi.png) no-repeat;
+    position: fixed; /* Fijar el cuadro en la pantalla */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para el centro */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+}
+
+.n-publicacion.active {
+    display: block; 
+}
+
+.n-publicacion form {
+    text-align: center; /* Centra todo el contenido del formulario */
+}
+
+
+.n-publicacion.active {
+    display: block;
+}
+
+.n-publicacion form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.n-publicacion form h3{
+    color: var(--black);
+    text-align: center;
+    padding-bottom: 1.5rem;
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+.n-publicacion form .inputBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+}
+
+
+.n-publicacion form .agregar-imagen {
+    width: 100%; /* Para que la imagen o botón esté debajo de los campos anteriores */
+    text-align: center; /* Centra el contenido */
+    margin-bottom: 2rem;
+}
+
+
+.n-publicacion form .inputBox input.titulo,
+.n-publicacion form .inputBox select.categoria {
+    width: 49%; /* Ancho de los campos de título y categoría */
+    margin-bottom: 1rem;
+    border: 2px solid #007BFF;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.n-publicacion form .inputBox input.imagen {
+    width: calc(49% * 2); /* Ancho del campo de imagen igual al total de los dos anteriores */
+    margin-bottom: 1rem;
+    border: 2px solid #007BFF;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+
+.n-publicacion form .titulo,
+.n-publicacion form .categoria,
+.n-publicacion form .subtitulo,
+.n-publicacion form .etiqueta {
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: #f0f0f0; /* Color de fondo claro */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Sombra azul suave */
+    margin-bottom: 1rem;
+    width: 49%;
+}
+
+.n-publicacion form .inputBox input, 
+.n-publicacion form textarea {
+    width: 100%;
+    background: #eee;
+    padding: 1rem;
+    margin: .7rem 0;
+    border-radius: .5rem;
+    color: var(--black);
+    font-size: 1.7rem;
+    
+    /* Añadir borde */
+    border: 2px solid #ccc; /* Color del borde */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.n-publicacion form .inputBox input{
+    width: 49%;
+    border: 2px solid #ccc;
+}
+
+.n-publicacion form .btn-publicar {
+    display: inline-block; /* Asegura que el botón respete el centrado */
+    margin-top: 2rem; /* Añade un margen superior si es necesario */
+    padding: 1rem 3rem;
+    background: var(--green); /* O el color que prefieras */
+    color: #fff;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.n-publicacion form .btn-publicar:hover {
+    background: var(--black); /* Efecto hover opcional */
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .credit{
+    text-transform: capitalize;
+    font-size: 2rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+
+.footer .credit span{
+    color: var(--green);
+}
+
+.footer .follow{
+    padding: 1rem 0;
+}
+
+.footer .follow a{
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    background: var(--black);
+    color: #fff;
+    margin: 0 .1rem;
+    text-align: center;
+}
+
+.footer .follow a:hover{
+    background: var(--green);
+}
+
+
+
+
+/* media queries */
+
+@media (max-widrh:991px){
+
+    html{
+
+        font-size: 55%;
+        
+    
+    }
+    .header{
+
+        padding: 1.5rem;
+    }
+
+}
+
+@media (max-widrh:768px){
+
+    #menu-bars{
+        display: inline-block;
+    }
+
+    .header .search-form{
+
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        border-top: var(--border);
+        width: 100%;
+        border-radius: 0;
+        
+
+    }
+
+    .header .search-form.navbar.active{
+        display: flex;
+    }
+
+    .header .navbar{
+
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        background: #fff;
+        display: none;
+
+    }
+
+    .header .navbar.active{
+
+        display: block;
+    }
+
+    .header .navbar a{
+
+        display: block;
+        background: #f7f7f7;
+        padding: 1.5rem;
+        margin: 1.5rem;
+        border-radius: .5rem;
+        border: var(--border);
+    }
+}

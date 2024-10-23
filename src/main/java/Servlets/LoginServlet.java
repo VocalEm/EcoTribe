@@ -86,7 +86,8 @@ public class LoginServlet extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("index.jsp");
+            request.setAttribute("errorMessage", "credenciales invalidas.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }        
     }
 

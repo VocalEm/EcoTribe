@@ -274,4 +274,37 @@ public class UsuarioDao {
     
     }
     
+    public boolean validacionCorreo(String correo)
+    {
+        boolean respuesta = false;
+        String sql = "{CALL SP_USUARIOS(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        try (Connection conn = dbc.Conectar();
+        CallableStatement stmt = conn.prepareCall(sql)) {
+        
+        stmt.setInt(1, 8);
+        stmt.setNull(2, Types.INTEGER);
+        stmt.setNull(3, Types.VARCHAR);
+        stmt.setNull(5, Types.VARCHAR);
+        stmt.setNull(4, Types.VARCHAR);
+        stmt.setNull(6, Types.DATE); // Conversión de LocalDate a java.sql.Date
+        stmt.setString(7, correo);
+        stmt.setNull(8, Types.VARCHAR);
+        stmt.setNull(9,  Types.VARCHAR);
+        stmt.setNull(10, Types.VARCHAR);
+        stmt.registerOutParameter(11, Types.BOOLEAN);
+        
+         stmt.execute();
+
+        respuesta = stmt.getBoolean(11);
+        stmt.close();
+        conn.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();  // Imprimir errores para depuración
+    }
+
+    return respuesta;
+    
+    }
+    
 }

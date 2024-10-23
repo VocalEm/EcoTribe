@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- mi css -->
-    <link rel="stylesheet" href="css/feed.css" />
+    <link rel="stylesheet" href="css/feed2.css" />
     <!-- cdn -->
     <link
       rel="stylesheet"
@@ -20,7 +20,7 @@
     />
     <title>feed</title>
   </head>
-  
+  <body>
     <!--Inicio-->
     <header class="header">
       <a href="#" class="logo"><span>Eco</span>Tribe</a>
@@ -169,29 +169,41 @@
             <img src="Imagenes/blog1.png" alt="" class="image" />
             <div class="date">
               <i class="far fa-clock"></i>
-              <span>${publicacion.fecha_creacion}</span>
+              <span>1 mayo, 2024</span>
             </div>
-            <a href="Imagenes/Publi.html" class="title-link">
-              <h3 class="title">${publicacion.titulo}</h3>
+            <a href="publi.jsp" class="title-link">
+              <h3 class="title">Cuidado de plantas</h3>
             </a>
             <p class="text">
-             ${publicacion.descripcion}
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui ipsa
+              dolore fugit voluptatibus non dolorem, enim provident voluptate,
+              impedit ipsum repellendus sit repudiandae labore deleniti. Minima
+              non est aut a nobis cum, rem sed, deserunt, nostrum cupiditate
+              consectetur. Quos ducimus eius obcaecati nesciunt reprehenderit
+              et, possimus asperiores accusantium quo maxime.
+            </p>
+            <p class="text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia
+              numquam sed nisi minima ea aliquam perspiciatis ipsa et
+              doloremque. Placeat nisi distinctio explicabo enim quibusdam
+              obcaecati reprehenderit velit, cum a?
             </p>
             <div class="links">
               <a href="#" class="user">
                 <i class="far fa-user"></i>
-                <span>by ${usuario.username}</span>
+                <span>by Emiliano</span>
               </a>
               <a href="#" class="icon">
                 <i class="far fa-comment"></i>
-                <span>${comentario.conteo}</span>
+                <span>(45)</span>
               </a>
               <a href="#" class="icon">
                 <i class="fa-regular fa-thumbs-up"></i>
-                <span>${reacciones.likes}</span>
+                <span>(29)</span>
               </a>
             </div>
           </div>
+
         </div>
       </div>
       <div class="paginacion">
@@ -210,30 +222,34 @@
       </div>
     </section>
     <!--Final de Post-->
-    <!-- Nueva Publicacion -->
+    
+     <!-- Nueva Publicacion -->
     <section class="n-publicacion" id="n-publicacion">
-      <form action="">
+    <form action="">
         <h3>Nueva Publicacion</h3>
         <div class="inputBox">
-          <input type="text" class="titulo" placeholder="Titulo" />
-          <input type="text" class="categoria" placeholder="Categoria" />
+            <input type="text" class="titulo" placeholder="Titulo">
+            <!-- List box para categorías -->
+            <select class="categoria">
+                <option value="" disabled selected>Elige una categoría</option>
+                <option value="Cuidado">Cuidado</option>
+                <option value="Flores">Flores</option>
+                <option value="Plantar">Plantar</option>
+                <option value="Exóticas">Exóticas</option>
+                <option value="Cactus">Cactus</option>
+            </select>
         </div>
+        <!-- Campo para subir una imagen -->
         <div class="inputBox">
-          <input type="text" class="subtitulo" placeholder="Subtitulo" />
-          <input type="text" class="etiqueta" placeholder="Etiqueta" />
+            
+            <input type="file" id="imagen" class="imagen" accept="image/*">
         </div>
-        <textarea
-          name=""
-          placeholder="Mensaje"
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
-        <input type="submit" value="Publicar" class="btn" />
-      </form>
-    </section>
-    <!-- Final Nueva Publicacion -->
- 
+        <textarea name="" placeholder="Mensaje" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="Publicar" class="btn">
+    </form>
+</section>
+<!-- Final Nueva Publicacion -->
+
     <!-- Inicio Pie de Pagina -->
 
     <section class="footer">
@@ -253,5 +269,5 @@
 
     <!-- js  -->
     <script src="PrincipalScript.js"></script>
-  
+  </body>
 </html>

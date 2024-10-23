@@ -46,7 +46,7 @@
     <div class="box">
         <form id="login-form" method="POST" action="LoginServlet">
         <h3>Sign In</h3>
-        <input type="text" placeholder="Username" name="correo" required />
+        <input type="email" placeholder="Email" name="correo" required />
         <input
           type="password"
           placeholder="Password"
@@ -54,23 +54,15 @@
           required
         />
         <input type="submit" value="Login" />
-
+        <div  class="error" id="errores">
+             <c:if test="${not empty errorMessage}">
+                <p style="color: red;">${errorMessage}</p>
+            </c:if>
+        </div>
         <div class="group">
-          <a href="#">Forget Password</a>
           <a href="Register.jsp">Sign up</a>
         </div>
       </form>
     </div>
-
-    <script>
-      document
-        .getElementById("login-form")
-        .addEventListener("submit", function (event) {
-
-          // Aquí puedes realizar la validación o cualquier otra lógica necesaria
-
-          // Redirige al usuario a otra página
-        });
-    </script>
   </body>
 </html>
